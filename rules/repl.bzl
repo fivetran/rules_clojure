@@ -3,7 +3,7 @@ def clojure_repl_impl(ctx):
 
     deps = depset(
         direct = toolchain.files.runtime,
-        transitive = [dep[JavaInfo].transitive_runtime_deps for dep in ctx.attr.deps],
+        transitive = [dep[JavaInfo].transitive_runtime_jars for dep in ctx.attr.deps],
     )
 
     ctx.actions.write(

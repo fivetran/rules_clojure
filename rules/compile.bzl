@@ -6,7 +6,7 @@ def clojure_java_library_impl(ctx):
 
     deps = depset(
         direct = toolchain.files.runtime,
-        transitive = [dep[JavaInfo].transitive_runtime_deps for dep in ctx.attr.deps],
+        transitive = [dep[JavaInfo].transitive_runtime_jars for dep in ctx.attr.deps],
     )
 
     cmd = """
