@@ -11,14 +11,14 @@ def rules_clojure_dependencies():
     jvm_maven_import_external(
         name = "org_clojure_spec_alpha",
         artifact = "org.clojure:spec.alpha:0.5.238",
-        artifact_sha1 = "d56a8d4c666ff8140e6d0a62d41263134be39254",
+        artifact_sha256 = "94cd99b6ea639641f37af4860a643b6ed399ee5a8be5d717cff0b663c8d75077",
         server_urls = ["https://repo1.maven.org/maven2/"],
     )
 
     jvm_maven_import_external(
         name = "org_clojure_core_specs_alpha",
         artifact = "org.clojure:core.specs.alpha:0.4.74",
-        artifact_sha1 = "4eb5dea521c4e6e1f68c2c47517f14a922003e60",
+        artifact_sha256 = "eb73ac08cf49ba840c88ba67beef11336ca554333d9408808d78946e0feb9ddb",
         server_urls = ["https://repo1.maven.org/maven2/"],
     )
 
