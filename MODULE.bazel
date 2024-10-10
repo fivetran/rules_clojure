@@ -1,0 +1,10 @@
+module(
+    name = "rules_clojure",
+)
+
+dependencies = use_extension("//:repositories.bzl", "dependencies")
+use_repo(dependencies, "org_clojure")
+use_repo(dependencies, "org_clojure_spec_alpha")
+use_repo(dependencies, "org_clojure_core_specs_alpha")
+
+register_toolchains("@rules_clojure//:clojure_toolchain")

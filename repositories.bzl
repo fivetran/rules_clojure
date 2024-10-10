@@ -22,5 +22,9 @@ def rules_clojure_dependencies():
         server_urls = ["https://repo1.maven.org/maven2/"],
     )
 
-def rules_clojure_toolchains():
-    native.register_toolchains("@rules_clojure//:clojure_toolchain")
+def _dependencies_impl(_ctx):
+    rules_clojure_dependencies()
+
+dependencies = module_extension(
+    implementation = _dependencies_impl,
+)
