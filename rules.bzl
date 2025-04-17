@@ -3,6 +3,7 @@ load("@rules_clojure//rules:compile.bzl", _clojure_java_library_impl = "clojure_
 load("@rules_clojure//rules:library.bzl", _clojure_library_impl = "clojure_library_impl")
 load("@rules_clojure//rules:repl.bzl", _clojure_repl_impl = "clojure_repl_impl")
 load("@rules_clojure//rules:test.bzl", _clojure_test_impl = "clojure_test_impl")
+load("@rules_java//java/common:java_info.bzl", "JavaInfo")
 
 clojure_binary = rule(
     doc = "Builds a wrapper shell script with the same name as the rule.",

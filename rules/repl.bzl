@@ -1,3 +1,5 @@
+load("@rules_java//java/common:java_info.bzl", "JavaInfo")
+
 def clojure_repl_impl(ctx):
     toolchain = ctx.toolchains["@rules_clojure//:toolchain"]
 
