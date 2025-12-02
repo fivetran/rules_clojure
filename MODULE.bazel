@@ -6,25 +6,10 @@ bazel_dep(name = "rules_jvm_external", version = "6.7")
 bazel_dep(name = "rules_java", version = "8.11.0")
 bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 
-rules_clojure_maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
-use_repo(rules_clojure_maven, "maven")
-rules_clojure_maven.install(
-    artifacts = [
-        "org.clojure:spec.alpha:0.5.238",
-        "org.clojure:core.specs.alpha:0.4.74",
-    ],
-    repositories = [
-        "https://repo1.maven.org/maven2/",
-    ],
-)
-rules_clojure_maven.artifact(
-    artifact = "clojure",
-    exclusions = [
-        "org.clojure:spec.alpha",
-        "org.clojure:core.specs.alpha",
-    ],
-    group = "org.clojure",
-    version = "1.11.3",
-)
+# Maven artifacts are now provided by the root module's isolated maven repository
+# The root module must include:
+#   - org.clojure:clojure:1.11.3
+#   - org.clojure:spec.alpha:0.5.238
+#   - org.clojure:core.specs.alpha:0.4.74
 
 register_toolchains("@rules_clojure//:clojure_toolchain")
