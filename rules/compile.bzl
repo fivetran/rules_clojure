@@ -6,10 +6,6 @@ def clojure_java_library_impl(ctx):
     classes = ctx.actions.declare_directory("%s.classes" % ctx.label.name)
     jar = ctx.actions.declare_file("%s.jar" % ctx.label.name)
 
-    # Use compile_time_jars instead of runtime_jars to avoid JaCoCo-instrumented dependencies
-    # during compilation. During coverage builds, runtime_jars are instrumented but
-    # compile_time_jars are not, which prevents ClassNotFoundException when Clojure macros
-    # (like gen-class) try to load classes at compile-time.
     deps = depset(
         direct = toolchain.files.runtime,
         transitive = [dep[JavaInfo].transitive_compile_time_jars for dep in ctx.attr.deps],
