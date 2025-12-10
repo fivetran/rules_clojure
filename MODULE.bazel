@@ -7,8 +7,9 @@ bazel_dep(name = "rules_java", version = "9.3.0")
 bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 
 rules_clojure_maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
-use_repo(rules_clojure_maven, "maven")
+use_repo(rules_clojure_maven, "maven", "rules_clojure_maven")
 rules_clojure_maven.install(
+    name = "rules_clojure_maven",
     artifacts = [
         "org.clojure:spec.alpha:0.5.238",
         "org.clojure:core.specs.alpha:0.4.74",
@@ -18,6 +19,7 @@ rules_clojure_maven.install(
     ],
 )
 rules_clojure_maven.artifact(
+    name = "rules_clojure_maven",
     artifact = "clojure",
     exclusions = [
         "org.clojure:spec.alpha",
